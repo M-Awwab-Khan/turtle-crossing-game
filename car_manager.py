@@ -13,3 +13,6 @@ class CarManager(Turtle):
         self.penup()
         self.fillcolor(random.choice(COLORS))
         self.goto(300, random.randint(-250, 250))
+
+    def move(self):
+        self.goto(self.xcor() - STARTING_MOVE_DISTANCE, self.ycor())
