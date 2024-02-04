@@ -19,5 +19,9 @@ while game_is_on:
     screen.update()
     if i % 12 == 0:
         car = CarManager()
-    car.move(player)
+    is_collided = car.move(player)
+    if is_collided:
+        break
     i += 1
+
+screen.exitonclick()
