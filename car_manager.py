@@ -16,6 +16,8 @@ class CarManager(Turtle):
         self.goto(300, random.randint(-250, 250))
         CarManager.cars.append(self)
 
-    def move(self):
+    def move(self, player):
         for car in CarManager.cars:
             car.goto(car.xcor() - STARTING_MOVE_DISTANCE, car.ycor())
+            if ((car.xcor() - player.xcor() <= 20) or (car.ycor() - player.ycor() <= 10)) and (car.distance(player) < 25):
+                print('collided')
