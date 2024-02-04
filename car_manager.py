@@ -25,3 +25,5 @@ class CarManager(Turtle):
             car.goto(car.xcor() - CarManager.move_speed, car.ycor())
             if ((car.xcor() - player.xcor() <= 20) or (car.ycor() - player.ycor() <= 10)) and (car.distance(player) < 25):
                 return True
+            if car.xcor() > 300:
+                CarManager.cars.remove(car)
