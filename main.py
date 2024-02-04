@@ -1,11 +1,8 @@
 import time
 from turtle import Turtle, Screen
-from player import Player
-from car_manager import CarManager
-from scoreboard import Scoreboard
-FINISH_LINE_Y = 280
-MOVE_INCREMENT = 0.1
-FONT = ("Courier", 24, "normal")
+from player import Player, FINISH_LINE_Y
+from car_manager import CarManager, MOVE_INCREMENT
+from scoreboard import Scoreboard, FONT
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -28,11 +25,10 @@ while game_is_on:
         t = Turtle()
         t.write('Game Over', align='center', font=FONT)
         break
-    if player.ycor() > 280:
+    if player.ycor() > FINISH_LINE_Y:
         player.reset_pos()
         scoreboard.level += 1
         scoreboard.update_level()
-        #CarManager.move_speed += MOVE_INCREMENT
         MOVE_INCREMENT *= 0.5
 
     i += 1
